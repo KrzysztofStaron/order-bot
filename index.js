@@ -41,9 +41,7 @@ client.on('message', msg =>{
     if (getCommand()[0] == `${prefix}deleteProduct`) send(delProduct(noPermision,getCommand()));
     if (getCommand()[0] == `${prefix}showProducts`) showProducts(msg);
     if (getCommand()[0] == `${prefix}order`) send(order(getCommand(), msg.author.username));
-    if (msg.channel.id == msg.guild.channels.cache.get(channelID)) {
     msg.channel.bulkDelete(1, true);
-  }
     fs.writeFileSync('products.json', JSON.stringify(products));
     fs.writeFileSync('orders.json', JSON.stringify(orders));
 });
